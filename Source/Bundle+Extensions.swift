@@ -24,9 +24,9 @@
 
 import Foundation
 
-extension Bundle {
+public extension Bundle {
     
-    public var releaseVersionNumber: String? {
+    var releaseVersionNumber: String? {
         return self.infoDictionary?["CFBundleShortVersionString"] as? String
     }
     

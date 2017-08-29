@@ -29,7 +29,7 @@ var TapBlockKey: UInt8 = 0
 var LongPressBlockKey: UInt8 = 0
 
 // a type for our action block closure
-typealias BlockButtonActionBlock = (_ sender: UIButton) -> Void
+public typealias BlockButtonActionBlock = (_ sender: UIButton) -> Void
 
 class ActionBlockWrapper : NSObject {
     var block : BlockButtonActionBlock
@@ -38,7 +38,7 @@ class ActionBlockWrapper : NSObject {
     }
 }
 
-extension UIButton {
+public extension UIButton {
     
     // Tap
     public func didTap(_ block: @escaping BlockButtonActionBlock) {
