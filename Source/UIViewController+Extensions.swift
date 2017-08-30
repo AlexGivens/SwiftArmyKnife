@@ -24,9 +24,9 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     
-    public func showOKAlertWithTitle(_ title: String, message: String, completion: (() -> Void)? = nil) {
+    func showOKAlertWithTitle(_ title: String, message: String, completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
             completion?()

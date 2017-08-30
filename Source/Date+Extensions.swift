@@ -24,9 +24,9 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
     
-    public var timeAgo: String {
+    var timeAgo: String {
         let calendar = Calendar.current
         let now = Date()
         let earliest = (now as NSDate).earlierDate(self)

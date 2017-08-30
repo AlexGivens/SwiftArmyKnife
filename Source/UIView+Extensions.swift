@@ -24,13 +24,13 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
-    public var isVisible: Bool {
+    var isVisible: Bool {
         return self.window != nil && self.alpha > 0.0 && self.isHidden == false
     }
     
-    public func roundCorners(_ corners: UIRectCorner, forRadius radius: CGFloat) {
+    func roundCorners(_ corners: UIRectCorner, forRadius radius: CGFloat) {
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
         mask.path = path.cgPath

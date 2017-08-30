@@ -24,9 +24,9 @@
 
 import Foundation
 
-extension String {
+public extension String {
     
-    public var isURL: Bool {
+    var isURL: Bool {
         let types: NSTextCheckingResult.CheckingType = [.link]
         let detector = try? NSDataDetector(types: types.rawValue)
         guard (detector != nil && self.characters.count > 0) else { return false }
@@ -36,13 +36,13 @@ extension String {
         return false
     }
     
-    public var isEmail: Bool {
+    var isEmail: Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
     }
     
-    public var domain: String? {
+    var domain: String? {
         guard let url = URL(string: self), let host = url.host else { return nil }
         let components = host.components(separatedBy: ".")
         if components.count < 3 {
@@ -52,4 +52,5 @@ extension String {
             return components[count-2] + "." + components[count-1]
         }
     }
+    
 }

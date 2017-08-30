@@ -24,9 +24,9 @@
 
 import Foundation
 
-extension Data {
+public extension Data {
     
-    public var mime: String? {
+    var mime: String? {
         var c = [UInt32](repeating: 0, count: 1)
         (self as NSData).getBytes(&c, length: 1)
         

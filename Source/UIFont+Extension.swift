@@ -24,32 +24,32 @@
 
 import UIKit
 
-extension UIFont {
+public extension UIFont {
     
-    public func withTraits(_ traits:UIFontDescriptorSymbolicTraits...) -> UIFont {
+    func withTraits(_ traits:UIFontDescriptorSymbolicTraits...) -> UIFont {
         if let descriptor = self.fontDescriptor.withSymbolicTraits(UIFontDescriptorSymbolicTraits(traits)) {
             return UIFont(descriptor: descriptor, size: 0)
         }
         return self
     }
     
-    public func bold() -> UIFont {
+    func bold() -> UIFont {
         return self.withTraits(.traitBold)
     }
     
-    public func italic() -> UIFont {
+    func italic() -> UIFont {
         return self.withTraits(.traitItalic)
     }
     
-    public func boldItalic() -> UIFont {
+    func boldItalic() -> UIFont {
         return self.withTraits(.traitBold, .traitItalic)
     }
     
-    public func monospace() -> UIFont {
+    func monospace() -> UIFont {
         return self.withTraits(.traitMonoSpace)
     }
     
-    public class func logAllFonts() {
+    class func logAllFonts() {
         let fontFamilyNames = UIFont.familyNames
         for familyName in fontFamilyNames {
             print("------------------------------")

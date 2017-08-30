@@ -24,9 +24,9 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     
-    public func scaledToSize(_ newSize: CGSize) -> UIImage {
+    func scaledToSize(_ newSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
         self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
@@ -34,7 +34,7 @@ extension UIImage {
         return newImage
     }
     
-    public var croppedToCircle: UIImage? {
+    var croppedToCircle: UIImage? {
         let square = CGSize(width: min(size.width, size.height), height: min(size.width, size.height))
         let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: square))
         imageView.contentMode = .scaleAspectFill
@@ -49,7 +49,7 @@ extension UIImage {
         return result
     }
     
-    public class func imageWithColor(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+    class func imageWithColor(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
         let rect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()!

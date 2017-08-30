@@ -24,9 +24,9 @@
 
 import UIKit
 
-extension UIStoryboard {
+public extension UIStoryboard {
     
-    class var main: UIStoryboard {
+    var main: UIStoryboard {
         return UIStoryboard(name: "Main", bundle: nil)
     }
     

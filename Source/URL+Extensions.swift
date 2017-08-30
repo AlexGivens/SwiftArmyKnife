@@ -25,9 +25,9 @@
 import Foundation
 import MobileCoreServices
 
-extension URL {
+public extension URL {
     
-    public var mime: String? {
+    var mime: String? {
         guard
             let typeIdentifier = self.typeIdentifier as CFString?,
             let mime = UTTypeCopyPreferredTagWithClass(typeIdentifier, kUTTagClassMIMEType)?.takeUnretainedValue()
@@ -37,7 +37,7 @@ extension URL {
         return mime as String
     }
     
-    public var typeIdentifier: String? {
+    var typeIdentifier: String? {
         guard pathExtension.isEmpty == false else { return nil }
         return UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, self.pathExtension as CFString, nil)?.takeRetainedValue() as String?
     }

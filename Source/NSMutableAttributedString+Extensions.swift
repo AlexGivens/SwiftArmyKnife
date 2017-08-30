@@ -24,7 +24,7 @@
 
 import Foundation
 
-extension NSMutableAttributedString {
+public extension NSMutableAttributedString {
     
     /**
      Modifies this instance of the string to remove characters from a given character set from
@@ -34,7 +34,7 @@ extension NSMutableAttributedString {
      - charSet: The character set with which to remove characters.
      */
     
-    public func stringByTrimmingCharactersInSet(_ set: CharacterSet) {
+    func stringByTrimmingCharactersInSet(_ set: CharacterSet) {
         
         let string = self.string as NSString
         var range = string.rangeOfCharacter(from: set)

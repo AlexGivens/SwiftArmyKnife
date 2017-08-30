@@ -24,9 +24,9 @@
 
 import UIKit
 
-extension UIScrollView {
+public extension UIScrollView {
     
-    public var isZoomedOut: Bool {
+    var isZoomedOut: Bool {
         return zoomScale - 0.001 < minimumZoomScale && minimumZoomScale < zoomScale + 0.001
     }
     

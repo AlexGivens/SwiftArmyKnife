@@ -24,7 +24,7 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     
     class var random: UIColor {
         let red = CGFloat(drand48())

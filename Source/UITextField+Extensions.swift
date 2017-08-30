@@ -24,7 +24,7 @@
 
 import UIKit
 
-extension UITextField {
+public extension UITextField {
     
     var isEmpty: Bool {
         let text = self.text ?? ""

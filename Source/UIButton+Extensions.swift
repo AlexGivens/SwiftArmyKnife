@@ -41,7 +41,7 @@ class ActionBlockWrapper : NSObject {
 public extension UIButton {
     
     // Tap
-    public func didTap(_ block: @escaping BlockButtonActionBlock) {
+    func didTap(_ block: @escaping BlockButtonActionBlock) {
         objc_setAssociatedObject(self, &TapBlockKey, ActionBlockWrapper(block: block), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         addTarget(self, action: #selector(block_handleTapAction), for: .touchUpInside)
     }
@@ -52,7 +52,7 @@ public extension UIButton {
     }
     
     // Long Press
-    public func didLongPress(_ block: @escaping BlockButtonActionBlock) {
+    func didLongPress(_ block: @escaping BlockButtonActionBlock) {
         objc_setAssociatedObject(self, &LongPressBlockKey, ActionBlockWrapper(block: block), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(block_handleLongPressAction))
         addGestureRecognizer(longPressGestureRecognizer)

@@ -30,11 +30,11 @@ public extension Bundle {
         return self.infoDictionary?["CFBundleShortVersionString"] as? String
     }
     
-    public var buildVersionNumber: String? {
+    var buildVersionNumber: String? {
         return self.infoDictionary?["CFBundleVersion"] as? String
     }
     
-    public class func keyForID(_ identifier: String) -> String? {
+    class func keyForID(_ identifier: String) -> String? {
         if
             let path = Bundle.main.path(forResource: "keys", ofType: "plist"),
             let keysDictionary = NSDictionary(contentsOfFile: path)
