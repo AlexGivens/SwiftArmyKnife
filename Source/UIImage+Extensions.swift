@@ -63,4 +63,15 @@ public extension UIImage {
         return image!
     }
     
+    func masking(_ mask: UIImage) -> UIImage? {
+        guard
+            let origImageRef = self.cgImage,
+            let origMaskRef = mask.cgImage,
+            let maskedImageReference = origImageRef.masking(origMaskRef)
+        else {
+            return nil
+        }
+        return UIImage(cgImage: maskedImageReference)
+    }
+    
 }
