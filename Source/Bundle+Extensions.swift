@@ -26,12 +26,12 @@ import Foundation
 
 public extension Bundle {
     
-    var releaseVersionNumber: String? {
-        return self.infoDictionary?["CFBundleShortVersionString"] as? String
+    class var releaseVersionNumber: String? {
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
     
-    var buildVersionNumber: String? {
-        return self.infoDictionary?["CFBundleVersion"] as? String
+    class var buildVersionNumber: String? {
+        return Bundle.main.infoDictionary?["CFBundleVersion"] as? String
     }
     
     class func keyForID(_ identifier: String) -> String? {
