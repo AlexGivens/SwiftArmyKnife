@@ -39,7 +39,7 @@ public extension UIView {
     
     var nestedSubviews: [UIView] {
         var array = [subviews].flatMap {$0}
-        array.forEach { array.append(contentsOf: $0.allSubviews) }
+        array.forEach { array.append(contentsOf: $0.nestedSubviews) }
         return array
     }
     
