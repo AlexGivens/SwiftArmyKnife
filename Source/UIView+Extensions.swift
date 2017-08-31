@@ -37,4 +37,23 @@ public extension UIView {
         self.layer.mask = mask
     }
     
+    var nestedSubviews: [UIView] {
+        var array = [subviews].flatMap {$0}
+        array.forEach { array.append(contentsOf: $0.allSubviews) }
+        return array
+    }
+    
+    func logViewHierarchy(_ counter: Int = 1) {
+        print("> \(self)")
+        for view in subviews {
+            var marker = ""
+            for _ in 0...counter {
+                marker += "-"
+            }
+            marker += ">"
+            print("\(marker) \(view)")
+            view.logViewHierarchy(counter + 1)
+        }
+    }
+    
 }
