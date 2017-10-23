@@ -24,7 +24,7 @@
 
 import Foundation
 
-class LocalStorage {
+public class LocalStorage {
     
     static var suiteName: String {
         set {
