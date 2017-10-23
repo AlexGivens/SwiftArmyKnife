@@ -26,7 +26,7 @@ import Foundation
 
 public class LocalStorage {
     
-    static var suiteName: String {
+    public static var suiteName: String {
         set {
             _suiteName = newValue
         }
@@ -38,12 +38,12 @@ public class LocalStorage {
     
     private static var _suiteName: String?
     
-    static func saveObject(_ object: Any, forKey key: String) {
+    public static func saveObject(_ object: Any, forKey key: String) {
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: object)
         UserDefaults(suiteName: suiteName)?.set(encodedData, forKey: key)
     }
     
-    static func loadObject<T>(forKey key: String) -> T? {
+    public static func loadObject<T>(forKey key: String) -> T? {
         if
             let decodedData = UserDefaults(suiteName: suiteName)?.data(forKey: key),
             let object = NSKeyedUnarchiver.unarchiveObject(with: decodedData) as? T
@@ -53,7 +53,7 @@ public class LocalStorage {
         return nil
     }
     
-    static func deleteObject(forKey key: String) {
+    public static func deleteObject(forKey key: String) {
         UserDefaults(suiteName: suiteName)?.removeObject(forKey: key)
     }
     
